@@ -43,7 +43,9 @@ class TopNQueue(maxCapacity: Int) extends Serializable {
       }
     }
   }
-
+  
+  def values(): IndexedSeq[ItemIdDistancePair] = priorityQ.dequeueAll.reverse
+  
   def nonEmpty(): Boolean = priorityQ.nonEmpty
 
   def iterator(): Iterator[ItemIdDistancePair] = priorityQ.reverseIterator
